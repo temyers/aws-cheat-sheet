@@ -5,7 +5,13 @@
 ### Create a new Elastic IP Address
     
     aws ec2 allocate-address --domain vpc
-    
+
+### EC2 AMIs
+
+#### Find the latest Ubuntu image (the equivalent of the ubuntu image shown through the Launch instance console page):
+
+    aws ec2 describe-images --owners=099720109477 --filters "Name=root-device-type,Values=ebs" "Name=image-type,Values=machine" "Name=virtualization-type,Values=hvm" --query Images[-1]
+
 ## VPC
 
 ### Find the VPC ID for a given name
